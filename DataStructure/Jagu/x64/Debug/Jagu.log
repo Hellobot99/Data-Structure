@@ -1,3 +1,2 @@
-﻿  BST.cpp
-C:\Users\User\source\repos\Jagu\Jagu\BST.cpp(81,1): warning C4715: 'BinarySearchTree::search': 모든 제어 경로에서 값을 반환하지는 않습니다.
-  Jagu.vcxproj -> C:\Users\User\source\repos\Jagu\x64\Debug\Jagu.exe
+﻿  Queue.c
+  Jagu.vcxproj -> C:\Code\Data-Structure\DataStructure\x64\Debug\Jagu.exe
