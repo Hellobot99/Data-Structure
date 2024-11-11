@@ -60,7 +60,7 @@
     <ClCompile Include="avltr.c">
       <Filter>소스 파일\c</Filter>
     </ClCompile>
-    <ClCompile Include="bst.c">
+    <ClCompile Include="bst1.c">
       <Filter>소스 파일\c</Filter>
     </ClCompile>
     <ClCompile Include="hashing.c">
@@ -81,7 +81,25 @@
     <ClCompile Include="Queue.c">
       <Filter>소스 파일\c</Filter>
     </ClCompile>
-    <ClCompile Include="Tree.c">
+    <ClCompile Include="BST.c">
+      <Filter>소스 파일\c</Filter>
+    </ClCompile>
+    <ClCompile Include="Kruskal.c">
+      <Filter>소스 파일\c</Filter>
+    </ClCompile>
+    <ClCompile Include="Prim.c">
+      <Filter>소스 파일\c</Filter>
+    </ClCompile>
+    <ClCompile Include="Dijkstra.c">
+      <Filter>소스 파일\c</Filter>
+    </ClCompile>
+    <ClCompile Include="Floyd.c">
+      <Filter>소스 파일\c</Filter>
+    </ClCompile>
+    <ClCompile Include="topogical sort.c">
+      <Filter>소스 파일\c</Filter>
+    </ClCompile>
+    <ClCompile Include="sorting.c">
       <Filter>소스 파일\c</Filter>
     </ClCompile>
   </ItemGroup>

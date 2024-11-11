@@ -59,14 +59,14 @@ void init(GraphType* g) {
 
 void insert_vertex(GraphType* g, int v) {
 	if (((g->n) + 1) > MAX_VERTICES) {
-		return 0;
+		return;
 	}
 	g->n++;
 }
 
 void insert_edge(GraphType* g, int u, int v) {
 	GraphNode* node;
-	if (u >= g->n || v >= g->n) return 0;
+	if (u >= g->n || v >= g->n) return;
 	node = (GraphNode*)malloc(sizeof(GraphNode));
 	node->vertex = v;
 	node->link = g->adj_list[u];
@@ -105,10 +105,10 @@ void bfs_list(GraphType* g, int v) {
 	while (!is_empty(&q)) {
 		v = dequeue(&q);
 		for (w = g->adj_list[v]; w; w = w->link) {
-			if (!visited[w->vertex]) {
+			if (visited[w->vertex] != 1) {
 				visited[w->vertex] = 1;
 				printf("%d ¹æ¹® -> ", w->vertex);
-				enqueue(&q, w->vertex);
+				enqueue(&q,w->vertex);
 			}
 		}
 	}

@@ -45,15 +45,13 @@ void Graph::DFS(string source, vector<vertex*>& visited) {
 	vertex* v = agraph.find(source)->second;
 	visited.push_back(v);
 	for (auto iter = v->alist.begin(); iter != v->alist.end(); iter++) {
-		if (find(visited.begin(), visited.end(), *iter) == visited.end())
-			DFS((*iter)->name, visited);
+		if (find(visited.begin(), visited.end(), *iter) == visited.end()) DFS((*iter)->name, visited);
 	}
 }
 
 bool Graph::check_connected() {
-	vector<vertex*>visited;
-	string source = agraph.begin()->first;
-	DFS(source, visited);
-	return(agraph.size() == visited.size());
+	vector<vertex*> visited;
+	DFS(agraph.begin()->first, visited);
+	return (visited.size() == agraph.size());
 }
 
