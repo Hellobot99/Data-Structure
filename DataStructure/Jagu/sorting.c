@@ -3,6 +3,7 @@
 #define Swap(x,y,z) ((z)=(x), (x)=(y), (y)=(z))
 #define MAX_SIZE 50
 
+// 선택 정렬
 void slection_sort(int list[], int n) {
 	int least, temp;
 	for (int i = 0; i < n - 1; i++) {
@@ -14,6 +15,7 @@ void slection_sort(int list[], int n) {
 	}
 }
 
+// 삽입 정렬
 void insertion_sort(int list[], int n) {
 	int i, j, key;
 	for (i = 1; i < n; i++) {
@@ -25,6 +27,7 @@ void insertion_sort(int list[], int n) {
 	}
 }
 
+//버블 정렬
 void bubble_sort(int list[], int n) {
 	int i, j, temp;
 	for (i = n - 1; i > 0; i--) {
@@ -34,6 +37,7 @@ void bubble_sort(int list[], int n) {
 	}
 }
 
+// 쉘 정렬
 void inc_insertion_sort(int list[], int first, int last, int gap) {
 	int i, j, key;
 	for (i = first + gap; i <= last; i + gap) {
@@ -55,6 +59,7 @@ void shell_sort(int list[], int n) {
 	}
 }
 
+// 합병 정렬
 int sorted[MAX_SIZE];
 
 void merge(int list[], int left, int mid, int right) {
@@ -84,6 +89,8 @@ void merge_sort(int list[], int left, int right) {
 	}
 }
 
+
+// 퀵 정렬
 int list[MAX_SIZE];
 int n;
 
@@ -114,5 +121,58 @@ void quick_sort(int list[], int left, int right) {
 		int q = partition(list, left, right);
 		quick_sort(list, left, q - 1);
 		quick_sort(list, q + 1, right);
+	}
+}
+
+
+// 기수 정렬
+#define BUCKETS 10
+#define DIGITS 4
+#define MAX_QUEUE_SIZE 100
+typedef int element;
+
+typedef struct {
+	element data[MAX_QUEUE_SIZE];
+	int front, rear;
+}QueueType;
+
+void init_queue(QueueType* q) {
+	q->front = q->rear = 0;
+}
+
+int is_empty(QueueType* q) {
+	return (q->front == q->rear);
+}
+
+int is_full(QueueType* q) {
+	return ((q->front + 1) % MAX_QUEUE_SIZE == q->front);
+}
+
+void enqueue(QueueType* q, element item) {
+	if (is_full(q)) return;
+	q->rear = (q->rear + 1) % MAX_QUEUE_SIZE;
+	return q->data[q->front] = item;
+}
+
+element dequeue(QueueType* q) {
+	if (is_empty(q)) return;
+	q->front = (q->front + 1) % MAX_QUEUE_SIZE;
+	return q->data[q->front];
+}
+
+void radix_sort(int list[], int n) {
+	int i, b, d, factor = 1;
+	QueueType* queues[BUCKETS];
+
+	for (b = 0; b < BUCKETS; b++) init_queue(&queues[b]);
+
+	for (d = 0; d < DIGITS; d++) {
+		for (i = 0; i < n; i++) enqueue(&queues[(list[i] / factor) % 10], list[i]);
+		for (b = i = 0; b < BUCKETS; b++) {
+			while (!is_empty(&queues[b])) {
+				list[i++] = dequeue(&queues[b]);
+			}
+		}
+		factor *= 10;
 	}
 }

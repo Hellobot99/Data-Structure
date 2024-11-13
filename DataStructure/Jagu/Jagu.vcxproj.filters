@@ -102,5 +102,8 @@
     <ClCompile Include="sorting.c">
       <Filter>소스 파일\c</Filter>
     </ClCompile>
+    <ClCompile Include="search.c">
+      <Filter>소스 파일\c</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
